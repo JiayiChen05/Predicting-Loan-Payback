@@ -1,8 +1,8 @@
 # Predicting Loan Payback
 
 ## Overview
-This project focuses on predicting the probability that a borrower will fully repay a loan using classical machine learning models.  
-The task is formulated as a binary classification problem with probabilistic outputs, based on a tabular dataset from the Kaggle Playground Series.
+This project focuses on predicting the probability that a borrower will pay back their loan using classical machine learning models including Logistic Regression, K-Nearest Neighbors (KNN), and Random Forest.
+
 This project includes:
 A complete end-to-end ML workflow
 Feature preprocessing using sklearn Pipelines
@@ -12,16 +12,18 @@ Probability-based predictions
 ---
 
 ## Problem Statement
-Given borrower demographic and financial information, the goal is to estimate the probability that a loan will be paid back in full.  
-Model performance is evaluated using ROC-AUC, which measures the quality of probability-based predictions.
+Accurately assessing whether a borrower will repay a loan is a critical task in real-world credit risk management. Poor repayment decisions can lead to financial losses for lenders, while overly conservative decisions may deny credit to qualified applicants.
+
+In this project, we aim to predict the probability that a borrower will fully repay a loan using demographic and financial features, such as income, debt-to-income ratio, credit score, employment status, and loan characteristics. Rather than making a hard yes/no decision, the model outputs a probabilistic estimate, which is more informative for practical decision-making.
+
+The task is formulated as a binary classification problem with probabilistic outputs, and model performance is evaluated using ROC-AUC, a metric that measures how well a model ranks borrowers by repayment risk. This setup reflects real-world lending scenarios, where ranking risk is often more important than exact classification accuracy.
 
 ---
 
 ## Dataset
 The dataset is provided by the Kaggle Playground Series: *Predicting Loan Payback*.
 The original dataset used to generate this competition data is publicly available at:  
-https://www.kaggle.com/datasets/nabhihazahid/loan-prediction-dataset-2025/data
-
+https://www.kaggle.com/competitions/playground-series-s5e11/data
 **Files:**
 - `train.csv`: training data with labels  
 - `test.csv`: test data without labels  
