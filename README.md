@@ -24,6 +24,7 @@ The task is formulated as a **binary classification problem with probabilistic o
 
 ## Dataset
 The dataset is provided by the Kaggle Playground Series: *Predicting Loan Payback*.
+
 All training and test data can be downloaded directly from the official Kaggle page:
 https://www.kaggle.com/competitions/playground-series-s5e11/data
 
