@@ -58,19 +58,25 @@ The target variable is:
 ## Data Split & Preprocessing
 
 ### Data Split
-- The dataset is split into **75% training** and **25% validation**
-- Stratified sampling is used to preserve class balance
-- The same split is applied to all models for fair comparison
+
+- The dataset is split into **75% training** and **25% validation** using stratified sampling to preserve class balance.
+- The same train/validation split is used for all models to ensure fair comparison.
+- For efficiency, subset sampling is applied only to the training data:
+  - Logistic Regression uses the full training set.
+  - KNN is trained on a 10% stratified subset of the training data.
+  - Random Forest is trained on a 15% stratified subset of the training data.
+- All models are evaluated on the same full validation set.
 
 ### Preprocessing
-All preprocessing steps are implemented using `sklearn` Pipelines and `ColumnTransformer` to avoid data leakage.
+
+All preprocessing steps are implemented using `sklearn` Pipelines and `ColumnTransformer` to avoid data leakage. The preprocessing pipeline is fitted on the training data only and applied consistently across all models.
 
 - **Numerical features**
   - Median imputation
   - Standardization
 - **Categorical features**
   - Most-frequent imputation
-  - One-hot encoding
+  - One-hot encoding (with unseen categories handled safely)
 
 ---
 
