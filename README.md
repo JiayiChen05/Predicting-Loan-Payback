@@ -132,6 +132,15 @@ Overall, this suggests that Random Forest provides reliable performance for risk
 
 ---
 
+## Feature Importance Analysis (Random Forest)
+
+Feature importance is analyzed using the trained Random Forest model, with one-hot encoded categorical features aggregated back to the original feature level.  
+
+The analysis shows that **employment status**, **debt-to-income ratio**, and **credit score** are the most influential predictors of loan repayment.  
+This provides additional interpretability for the Random Forest model and helps explain its strong validation performance.
+
+---
+
 ## Model Selection and Test Set Inference
 
 Based on validation performance, the Random Forest model is used to perform inference on the test set.  
