@@ -14,6 +14,8 @@ Model performance is evaluated using ROC-AUC, which measures the quality of prob
 
 ## Dataset
 The dataset is provided by the Kaggle Playground Series: *Predicting Loan Payback*.
+The original dataset used to generate this competition data is publicly available at:  
+https://www.kaggle.com/datasets/nabhihazahid/loan-prediction-dataset-2025/data
 
 **Files:**
 - `train.csv`: training data with labels  
@@ -21,6 +23,23 @@ The dataset is provided by the Kaggle Playground Series: *Predicting Loan Paybac
 - `sample_submission.csv`: example submission format  
 
 The dataset contains a mix of numerical and categorical features and is designed to resemble a real-world loan prediction task.
+**Numerical features**
+- `annual_income`
+- `debt_to_income_ratio`
+- `credit_score`
+- `loan_amount`
+- `interest_rate`
+
+**Categorical features**
+- `gender`
+- `marital_status`
+- `education_level`
+- `employment_status`
+- `loan_purpose`
+- `grade_subgrade`
+
+The target variable is:
+- `loan_paid_back` (binary label indicating whether the loan was repaid)
 
 ---
 
