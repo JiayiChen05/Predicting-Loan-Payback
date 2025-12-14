@@ -34,6 +34,7 @@ https://www.kaggle.com/competitions/playground-series-s5e11/data
 - `sample_submission.csv`: example submission format  
 
 The dataset contains a mix of numerical and categorical features and is designed to resemble a real-world loan prediction task.
+
 **Numerical features**
 - `annual_income`
 - `debt_to_income_ratio`
