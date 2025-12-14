@@ -83,26 +83,26 @@ All preprocessing steps are implemented using `sklearn` Pipelines and `ColumnTra
 ## Models
 
 ### Logistic Regression
-Logistic Regression is used as a baseline model.  
-An L2-regularized formulation is applied to improve generalization in the presence of correlated and high-dimensional features.
-Fast to train and interpret.
 
----
+- Logistic Regression is used as a **baseline classification model**.  
+- An **L2-regularized** formulation is applied to improve generalization for high-dimensional one-hot encoded features.  
+- The model is trained using a unified preprocessing pipeline and serves as a fast and interpretable baseline.
+
 
 ### K-Nearest Neighbors (KNN)
-KNN is implemented as a non-parametric baseline model.  
-To reduce computational cost, the model is trained on a stratified subset of the training data.  
-Dimensionality reduction is applied using Truncated SVD.
-Different values of *k* are evaluated.
 
----
+- K-Nearest Neighbors (KNN) is used as a non-parametric baseline model.  
+- To reduce computational cost, the model is trained on a **10% stratified subset** of the training data.  
+- **Truncated SVD** is applied for dimensionality reduction prior to KNN.  
+- Multiple values of *k* are evaluated, and the best-performing configuration is selected using the validation set.
+
 
 ### Random Forest
-Random Forest is used as an ensemble-based model capable of capturing nonlinear feature interactions.  
-Class imbalance is addressed using class-weighted training, and the model is trained on a stratified subset of the training data for efficiency.  
-More robust to noise, imbalance, and high-dimensional OHE features.
-Achieves the best ROC-AUC and accuracy.
-This model achieves the best validation ROC-AUC and is selected as the final model.
+
+- Random Forest is used as an ensemble-based model capable of capturing nonlinear feature interactions.  
+- Class-weighted training is applied to address class imbalance, and the model is trained on a **15% stratified subset** of the training data for computational efficiency.
+
+
 
 ---
 
