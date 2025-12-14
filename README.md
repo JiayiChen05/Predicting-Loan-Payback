@@ -78,6 +78,8 @@ All preprocessing steps are implemented using `sklearn` Pipelines and `ColumnTra
   - Most-frequent imputation
   - One-hot encoding (with unseen categories handled safely)
 
+
+
 ---
 
 ## Models
@@ -107,27 +109,35 @@ All preprocessing steps are implemented using `sklearn` Pipelines and `ColumnTra
 ---
 
 ## Evaluation
-Models are evaluated on the validation set using:
+
+Models are evaluated on the held-out validation set using:
 - Accuracy
 - ROC-AUC (primary metric)
 - Confusion Matrix
 
-Among all tested models, the Random Forest classifier achieves the strongest overall performance and is chosen for final prediction.
+Logistic Regression provides a strong and stable linear baseline.  
+KNN trades some predictive performance for reduced computational cost.  
+Random Forest demonstrates the strongest overall validation performance, particularly in terms of ROC-AUC.
 
 ---
 
 ## Confusion Matrix Interpretation
-Random Forest shows:
-- High True Positives (In this case, it is correctly predicted successful repayments)
-- Reasonable ability to detect defaults despite imbalance
-- Lower False Positive Rate compared to KNN
-Therefore, this suggests Random Forest is the most reliable model for risk-sensitive financial applications.
+
+The confusion matrix for the Random Forest model indicates:
+- A high number of true positive predictions, corresponding to correctly identified successful repayments
+- Improved detection of default cases despite class imbalance
+- A balanced trade-off between false positives and false negatives
+
+Overall, this suggests that Random Forest provides reliable performance for risk-aware loan repayment prediction.
 
 ---
 
-## Final Model & Test Prediction
-The selected Random Forest model is used to generate predictions on the test set.  
-The model outputs **probability scores** representing the likelihood that a loan will be paid back, which are formatted according to Kaggle submission requirements.
+## Model Selection and Test Set Inference
+
+Based on validation performance, the Random Forest model is used to perform inference on the test set.  
+The trained pipeline generates probability scores representing the likelihood that a loan will be paid back.  
+
+Predicted probabilities are stored in a submission-style format with `id` and `loan_paid_back`, and the output distribution is inspected to ensure reasonable probability ranges.
 
 ---
 
@@ -145,12 +155,13 @@ Predicting-Loan-Payback/
 ---
 
 ## Conclusion
-This project demonstrates a full ML workflow for tabular classification:
-- Rigorous preprocessing with pipelines
-- Multiple baseline and advanced models
-- Comparative evaluation
-- Handling of class imbalance
-- Production of probability-based predictions
-  
-The use of pipelines ensures clean and reproducible experimentation, while multiple models provide insight into different modeling trade-offs. In this case, the Random Forest emerges as the strongest model, balancing predictive performance, robustness, and handling of complex patterns.
 
+This project demonstrates a complete machine learning workflow for tabular classification, including:
+- Robust preprocessing using pipelines
+- Exploration of multiple baseline and ensemble models
+- Consistent evaluation on a held-out validation set
+- Explicit handling of class imbalance
+- Generation of probability-based predictions
+
+The use of `sklearn` pipelines ensures clean and reproducible experimentation, while comparing multiple models highlights important trade-offs between simplicity, efficiency, and predictive performance.  
+Overall, the Random Forest model demonstrates the strongest validation performance among the evaluated methods, particularly in terms of ROC-AUC.
