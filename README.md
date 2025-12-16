@@ -158,6 +158,7 @@ Predicting-Loan-Payback/
 ├── train.csv
 ├── test.csv
 ├── sample_submission.csv
+├── project_summary.pdf
 └── README.md
 ```
 
